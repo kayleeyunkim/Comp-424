@@ -42,6 +42,22 @@
         </div>
     </nav>
 
+    <form name="forgot_username" id = "forgot_username" method="post" action="forgot_username.php">
+        <div class="outerbox_forgot_username">
+            <p class="title">Find Password</p>
+            <div class = "method_div">
+                <input type="radio" name="find_method" id = "method_email" value="email" class="method_button"><p class = "method">　Find by E-mail address</p> <br/><br/>
+            </div>
+
+            <input type="submit" value="Find Username" class="submit" style="margin: 10px;">
+
+            <div class = "forgot1">
+                Want to Sign In? Click <a href="signin.php">HERE</a><BR/>
+                Forgot Username? Click <a href="forgot_username.php">HERE</a><BR/>
+                New user? Register <a href="register.php">HERE</a>
+            </div>
+        </div>
+    </form>
 
 </body>
 </html>
