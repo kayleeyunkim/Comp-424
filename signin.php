@@ -29,33 +29,42 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Sign In</a></li>
+                    <li class="active"><a href="#">Register</a></li>
                 </ul>
 
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Account Settings</a></li>
-                </ul>
+                <!-- <ul class="nav navbar-nav">
+                    <li class="active"><a href="#"></a></li>
+                </ul> -->
             </div>
         </div>
     </nav>
 
     <form name="signinform" id ="signinform" method="post" action="signin.php" onsubmit="validation()">
         <div class="outside" id="outside">
-            <p class = "title" id = "title">Sign In</p>
-            <div class="loginpart">
-                <input type="email" id="email" class="type_signin" name="email" placeholder="Enter your e-mail address">
-                <input type="PASSWORD" id="pwdid" class="type_signin" name="password" placeholder="Enter your password">
-                <div class="rememberdiv">
-                    <input type="checkbox" name="remember" value="remember" class="remember"><p class = "remember1">　Remember me</p>
+
+            <div class="row">
+                <div class="col-lg-12">
+                <p class = "title" id = "title">Sign In</p>
                 </div>
-            </div>
-
-            <input type="submit" value="Sign In" class="submit">
-
-            <div class = "forgot">
-                Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/>
-                Forgot password? Click <a href="forgot_password.php">HERE</a><BR/>
-                New user? Register <a href="register.php">HERE</a>
+                <div class="loginpart">
+                    <div class="col-lg-12">
+                    <input type="email" id="email" class="type_signin" name="email" placeholder="Enter your e-mail address">
+                    </div>
+                    <div class="col-lg-12">
+                    <input type="PASSWORD" id="pwdid" class="type_signin" name="password" placeholder="Enter your password">
+                    </div>
+                    <div class="col-sm-6">
+                    <div class="rememberdiv">
+                        <input type="checkbox" name="remember" value="remember" class="remember"><p class = "remember1">　Remember me</p>
+                    </div>
+                    </div>
+                </div>
+                <input type="submit" value="Sign In" class="submit" class="text-left">
+                <div class = "forgot">
+                    <!-- Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/> -->
+                    Forgot password? Click <a href="forgot_password.php">HERE</a><BR/>
+                    New user? Register <a href="register.php">HERE</a>
+                </div>
             </div>
         </div>
     </form>
