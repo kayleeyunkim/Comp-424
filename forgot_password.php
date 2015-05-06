@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Registration In</title>
+    <title>Forgot Username</title>
     <link rel="stylesheet" href="assets/424.css" type="text/css" />
 
 

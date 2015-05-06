@@ -3,9 +3,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Log In</title>
+    <title>Sign In</title>
     <link rel="stylesheet" href="assets/424.css" type="text/css" />
-    <script src="424.js"></script>
+
 
     <?php
     /**
