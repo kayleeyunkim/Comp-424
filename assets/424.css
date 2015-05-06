@@ -82,6 +82,16 @@ body {
     font-size: 17px;
 }
 
+.find_button {
+    background-color: #000087;
+    width: 80%;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    height: 30px;
+    font-size: 17px;
+}
+
 .forgot{
     margin: auto;
     margin-top: 20px;

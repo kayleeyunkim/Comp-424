@@ -47,11 +47,11 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="signin.php">Log In</a></li>
+                    <li class="active"><a href="signin.php">Log In</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Recover Account</a></li>
+                    <li class="active"><a href="recover_account.php">Recover Account</a></li>
                 </ul>
             </div>
         </div>

@@ -33,15 +33,15 @@
             </ul>
 
             <ul class="nav navbar-nav">
-                <li class=""><a href="signin.php">Log In</a></li>
+                <li class="active"><a href="signin.php">Log In</a></li>
             </ul>
 
             <ul class="nav navbar-nav">
-                <li class=""><a href="register.php">Register</a></li>
+                <li class="active"><a href="register.php">Register</a></li>
             </ul>
 
             <ul class="nav navbar-nav">
-                <li class=""><a href="#">Recover Account</a></li>
+                <li class="active"><a href="forgot_password.php">Find Password</a></li>
             </ul>
         </div>
     </div>

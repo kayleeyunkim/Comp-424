@@ -47,15 +47,11 @@
             </ul>
 
             <ul class="nav navbar-nav">
-                <li class=""><a href="signin.php">Log In</a></li>
+                <li class="active"><a href="signin.php">Log In</a></li>
             </ul>
 
             <ul class="nav navbar-nav">
-                <li class=""><a href="register.php">Register</a></li>
-            </ul>
-
-            <ul class="nav navbar-nav">
-                <li class=""><a href="#">Recover Account</a></li>
+                <li class="active"><a href="register.php">Register</a></li>
             </ul>
         </div>
     </div>
@@ -69,16 +65,13 @@
 
 
             <div class = "method_div">
-                <input type="radio" name="find_method" id = "method_security_question"value="security_question" class="method_button"><p class = "method">　Find by Security Question</p><br/><br/>
-                <input type="radio" name="find_method" id = "method_email" value="email" class="method_button"><p class = "method">　Find by E-mail address</p> <br/><br/>
+                <input type="button" value="Find User E-mail HERE" class="find_button" style="margin: 10px;" onclick="location.href='forgot_username.php'">
+                <input type="button" value="Find User password HERE" class="find_button" style="margin: 10px;" onclick="location.href='forgot_password.php'">
             </div>
-
-
         </div>
 
-        <input type="submit" value="Find Password" class="submit" style="margin: 10px;" onclick="redirect()">
-
         <div class = "forgot1">
+            <br/>
             Want to Sign In? Click <a href="signin.php">HERE</a><BR/>
             New user? Register <a href="register.php">HERE</a>
         </div>
