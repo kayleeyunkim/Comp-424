@@ -4,20 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <title>Sign In</title>
-    <link rel="stylesheet" href="assets/424.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/424.css" type="text/css" />
+    <!-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
-    <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
-
-    <script type="text/javascript">
-        function validation() {
-
-        }
-    </script>
-
 </head>
+
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">424</a>
@@ -29,12 +23,12 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Register</a></li>
+                    <li class=""><a href="#">Register</a></li>
                 </ul>
 
-                <!-- <ul class="nav navbar-nav">
-                    <li class="active"><a href="#"></a></li>
-                </ul> -->
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="#">Recover Account</a></li>
+                </ul>
             </div>
         </div>
     </nav>
@@ -69,6 +63,14 @@
         </div>
     </form>
 
-</body>
-</html>
 
+<script type="text/javascript">
+    function validation() {
+
+    }
+</script>
+<script type="text/javascript" src="./assets/jquery.min.js"></script>
+<script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
