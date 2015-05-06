@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ebdd1829-018c-4848-a513-28ae91f17f4d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/424.css" afterPath="$PROJECT_DIR$/assets/424.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forgot_password.php" afterPath="$PROJECT_DIR$/forgot_password.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forgot_username.php" afterPath="$PROJECT_DIR$/forgot_username.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/method_email.php" afterPath="$PROJECT_DIR$/method_email.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/method_security.php" afterPath="$PROJECT_DIR$/method_security.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recover_account.php" afterPath="$PROJECT_DIR$/recover_account.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/register.php" afterPath="$PROJECT_DIR$/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin.php" afterPath="$PROJECT_DIR$/signin.php" />
     </list>
     <ignored path="COMP-424-Course-Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="300">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.27925533" vertical-offset="0" max-vertical-offset="752">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -78,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="forgot_password.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forgot_password.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forgot_password.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7724138" vertical-offset="490" max-vertical-offset="1320">
-              <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+            <state vertical-scroll-proportion="-3.627451" vertical-offset="490" max-vertical-offset="1320">
+              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -164,10 +157,10 @@
         <option value="$PROJECT_DIR$/method_email.php" />
         <option value="$PROJECT_DIR$/recover_account.php" />
         <option value="$PROJECT_DIR$/forgot_username.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/method_security.php" />
         <option value="$PROJECT_DIR$/signin.php" />
         <option value="$PROJECT_DIR$/forgot_password.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -425,14 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="300">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.333334" vertical-offset="283" max-vertical-offset="1650">
@@ -505,12 +490,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/forgot_password.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7724138" vertical-offset="490" max-vertical-offset="1320">
-          <caret line="75" column="12" selection-start-line="75" selection-start-column="12" selection-end-line="75" selection-end-column="12" />
+        <state vertical-scroll-proportion="-3.627451" vertical-offset="490" max-vertical-offset="1320">
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#1;n#div#0;n#div#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27925533" vertical-offset="0" max-vertical-offset="752">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
