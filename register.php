@@ -35,7 +35,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">424</a>
@@ -43,15 +43,15 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Sign In</a></li>
+                    <li class=""><a href="signin.php">Log In</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Account Settings</a></li>
+                    <li class=""><a href="#">Recover Account</a></li>
                 </ul>
             </div>
         </div>
@@ -72,8 +72,9 @@
                 <input type="PASSWORD" class="type_register" id="repwd" name="repwd" placeholder="Re-type Password">
 
                 <input type="text" class="type_register" name="phonenumber" placeholder="Phone Number (e.g. 123-345-6789)">
+                <input type="date" class="type_register" name="birthday" placeholder="Birthday (e.g. 1980-01-01)" style="height: 30px;">
                 <select class = "securityquestion" name="securityquestion">
-                    <option value="">Choose Security question　　　　　▼</option>
+                    <option value="">Choose Security question　　　　　　▼</option>
                     <option value="petname">What is your pet name?</option>
                     <option value="schoolname">Which University did you attend?</option>
                     <option value="gradyear">What year did / will you graduate?</option>
