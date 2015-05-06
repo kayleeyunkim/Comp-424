@@ -7,35 +7,52 @@
     <link rel="stylesheet" href="assets/424.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <?php
-    /**
-     * Created by PhpStorm.
-     * User: Kaylee's Desktop
-     * Date: 2015-05-05
-     * Time: 오후 8:26
-     */
-    ?>
 
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="#">424</a>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">424</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Sign In</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Account Settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="outside" id="outside">
+        <p class = "signin" id = "signin">Sign In</p>
+        <div class="loginpart">
+            <input type="email" id="email" class="type_signin" name="email" placeholder="Enter your e-mail address">
+            <input type="PASSWORD" id="pwd" class="type_signin" name="password" placeholder="Enter your password">
+            <div class="rememberdiv">
+                <input type="checkbox" name="remember" value="remember" class="remember"><p class = "remember1">　Remember me</p>
+            </div>
         </div>
 
-        <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-            </ul>
+        <input type="submit" value="Sign In" class="submit">
+
+        <div class = "forgot">
+            Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/>
+            Forgot password? Click <a href="forgot_password.php">HERE</a><BR/>
+            New user? Register <a href="register.php">HERE</a>
         </div>
     </div>
-</nav>
 
-<div id="content"></div>
-
-<script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
 
