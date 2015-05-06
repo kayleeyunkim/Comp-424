@@ -23,7 +23,7 @@
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Register</a></li>
+                    <li class="" onclick=""><a href="#">Register</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
@@ -67,6 +67,12 @@
 <script type="text/javascript">
     function validation() {
 
+    }
+
+    function getCurrentBaseUrl() {
+        var baseArr = window.location.href.split('/'),
+            baseUrl = baseArr[0] + '/' + baseArr[2];
+        return baseUrl;
     }
 </script>
 <script type="text/javascript" src="./assets/jquery.min.js"></script>
