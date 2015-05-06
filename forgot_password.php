@@ -46,10 +46,11 @@
         <div class="outerbox_forgot_username">
             <p class="title">Find Password</p>
             <div class = "method_div">
-                <input type="radio" name="find_method" id = "method_email" value="email" class="method_button"><p class = "method">　Find by E-mail address</p> <br/><br/>
+                <input type="text" class="type_signin" id ="email" name="firstname" placeholder="Enter your e-mail address">
+
             </div>
 
-            <input type="submit" value="Find Username" class="submit" style="margin: 10px;">
+            <input type="submit" value="Send temporary password" class="submit" style="margin: 10px;">
 
             <div class = "forgot1">
                 Want to Sign In? Click <a href="signin.php">HERE</a><BR/>
