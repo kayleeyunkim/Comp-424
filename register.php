@@ -119,7 +119,7 @@
             <input type="PASSWORD" class="type_register" id="repwd" name="repwd" placeholder="Re-type Password">
 
             <input type="text" class="type_register" name="phone_number" placeholder="Phone Number (e.g. 123-345-6789)">
-            <input type="date" class="type_register" name="birth_date" placeholder="Birthday (e.g. 1980-01-01)" style="height: 30px;">
+            <input type="date" class="type_register" name="birth_date" placeholder="Birthday (mm-dd-yyyy)" style="height: 30px;">
             <select class = "securityquestion" name="security_question">
                 <option value="">Choose Security question　　　　　　▼</option>
                 <option value="petname">What is your pet name?</option>
