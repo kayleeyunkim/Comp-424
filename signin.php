@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,8 +8,26 @@
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
 </head>
-
 <body>
+<?php
+    $database = 'captain_vahab';
+    $user = 'vahab';
+    $password = 'hNd7vzKER2BbzKut';
+    $host = 'localhost';
+
+    $link = msql_connect($host, $user, $password);
+    if ($link == true) {
+        echo "Link: " . $link;
+        $db_selected = mysql_select_db(
+            $database,
+            $link
+            );
+    }
+    else {
+        echo "<div>Error connecting to database</div>";
+    }
+?>
+</body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -77,6 +94,7 @@
 </script>
 <script type="text/javascript" src="./assets/jquery.min.js"></script>
 <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
+
+
 
 </html>
