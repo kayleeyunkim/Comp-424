@@ -76,14 +76,6 @@
                     Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/>
                     Forgot password? Click <a href="forgot_password.php">HERE</a><br/>
                     New user? Register <a href="register.php">HERE</a>
-                    <?php
-                        if ($link == true) {
-                            echo "<div>you made it!</div>";
-                        }
-                        else {
-                            echo "<div>fail</div>";
-                        }
-                    ?>
                 </div>
             </div>
         </div>
