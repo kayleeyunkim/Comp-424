@@ -7,26 +7,27 @@
     <!-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
-</head>
-<body>
 <?php
     $database = 'captain_vahab';
     $user = 'vahab';
-    $password = 'hNd7vzKER2BbzKut';
+    $password = '5bPKpsmPvfEujKVb';
     $host = 'localhost';
 
-    $link = msql_connect($host, $user, $password);
-    if ($link == true) {
-        echo "Link: " . $link;
+    $link = mysqli_connect($host, $user, $password, $database);
+    if ($link) {
+        // echo "Link: " . $link;
         $db_selected = mysql_select_db(
             $database,
             $link
             );
     }
     else {
-        echo "<div>Error connecting to database</div>";
+        die("Error: " . mysqli_connect_error());
     }
 ?>
+</head>
+<body>
+
 </body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -75,6 +76,14 @@
                     Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/>
                     Forgot password? Click <a href="forgot_password.php">HERE</a><br/>
                     New user? Register <a href="register.php">HERE</a>
+                    <?php
+                        if ($link == true) {
+                            echo "<div>you made it!</div>";
+                        }
+                        else {
+                            echo "<div>fail</div>";
+                        }
+                    ?>
                 </div>
             </div>
         </div>
