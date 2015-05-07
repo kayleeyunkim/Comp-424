@@ -36,15 +36,15 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="" onclick=""><a href="#">Register</a></li>
+                    <li class="active"><a href="register.php">Register</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="#">Recover Account</a></li>
+                    <li class="active"><a href="recover_account.php">Recover Account</a></li>
                 </ul>
             </div>
         </div>
@@ -70,10 +70,10 @@
                     </div>
                     </div>
                 </div>
-                <input type="submit" value="Sign In" class="submit" class="text-left">
+                <input type="submit" value="Sign In" class="submit">
                 <div class = "forgot">
-                    <!-- Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/> -->
-                    Forgot password? Click <a href="forgot_password.php">HERE</a><BR/>
+                    Forgot user e-mail? Click <a href="forgot_username.php">HERE</a> <br/>
+                    Forgot password? Click <a href="forgot_password.php">HERE</a><br/>
                     New user? Register <a href="register.php">HERE</a>
                 </div>
             </div>

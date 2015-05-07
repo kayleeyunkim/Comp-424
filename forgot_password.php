@@ -9,6 +9,21 @@
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
 
+    <script type="text/javascript">
+
+        function redirect() {
+            if (document.getElementById('method_security_question').checked) {
+                alert("1");
+                window.location.href = 'method_security.php';
+            }
+
+            if (document.getElementById('method_email').checked) {
+                alert("2");
+                window.location.href = 'method_email.php';
+            }
+        }
+    </script>
+
     <?php
     /**
      * Created by PhpStorm.
@@ -20,7 +35,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">424</a>
@@ -28,29 +43,36 @@
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="index.php">Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Sign In</a></li>
+                    <li class="active"><a href="signin.php">Log In</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Account Settings</a></li>
+                    <li class="active"><a href="register.php">Register</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="forgot_username.php">Find User E-mail</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <form name="forgot_username" id = "forgot_username" method="post" action="forgot_username.php">
+    <form name="forgot_password" id = "forgot_password" method="post" action="forgot_password.php">
         <div class="outerbox_forgot_username">
             <p class="title">Find Password</p>
             <div class = "method_div">
-                <input type="text" class="type_signin" id ="email" name="firstname" placeholder="Enter your e-mail address">
+
+                <div class = "method_div">
+                    <input type="button" value="Find by Security Question" class="find_button" style="margin: 10px;" onclick="location.href='method_security.php'">
+                    <input type="button" value="Find by E-mail address" class="find_button" style="margin: 10px;" onclick="location.href='method_email.php'">
+                </div>
+
 
             </div>
-
-            <input type="submit" value="Send temporary password" class="submit" style="margin: 10px;">
 
             <div class = "forgot1">
                 Want to Sign In? Click <a href="signin.php">HERE</a><BR/>

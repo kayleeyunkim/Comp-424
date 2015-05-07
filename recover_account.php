@@ -11,8 +11,19 @@
 
     <script type="text/javascript">
 
+        function redirect() {
+            if (document.getElementById('method_security_question').checked) {
+                alert("1");
+                window.location.href = 'method_security.php';
+            }
 
+            if (document.getElementById('method_email').checked) {
+                alert("2");
+                window.location.href = 'method_email.php';
+            }
+        }
     </script>
+
     <?php
     /**
      * Created by PhpStorm.
@@ -42,41 +53,31 @@
             <ul class="nav navbar-nav">
                 <li class="active"><a href="register.php">Register</a></li>
             </ul>
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="recover_account.php">Recover Account</a></li>
-            </ul>
         </div>
     </div>
 </nav>
-<form name="method_email" id = "method_email" method="post">
+
+<form name="recover_account" id = "recover_account" method="post">
     <div class="outerbox_forgot_username">
-
         <p class="title">Find Password</p>
+        <div class = "method_div">
 
 
-        <div class="choose_question" id = "choose_question">
-            <input type="email" class="type_register" name="username" placeholder="E-mail address (*Required)">
 
-            <!-- show security question that user choose when register
-            <p id="security_question" style="font-size: 13px;">Security question:</p>
-            <p id="security_question">show security question that user chose when register</p>
-            <input type="text" class ="type_forgot_username2" name="securityanswer" placeholder="Answer for Security Question"> -->
+            <div class = "method_div">
+                <input type="button" value="Find User E-mail HERE" class="find_button" style="margin: 10px;" onclick="location.href='forgot_username.php'">
+                <input type="button" value="Find User password HERE" class="find_button" style="margin: 10px;" onclick="location.href='forgot_password.php'">
+            </div>
         </div>
 
-
-
-        <input type="submit" value="Send temporary password" class="submit" style="margin: 10px;">
-
-        <div class = "forgot2">
-            Find password by Security Question, Click <a href="method_security.php">HERE</a><br/>
-            Have an account? Sign in <a href="signin.php">HERE</a><br/>
+        <div class = "forgot1">
+            <br/>
+            Want to Sign In? Click <a href="signin.php">HERE</a><BR/>
             New user? Register <a href="register.php">HERE</a>
         </div>
     </div>
-
-
 </form>
+
 </body>
 </html>
 
