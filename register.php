@@ -38,20 +38,20 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">424</a>
+                <a class="navbar-brand" href="index.php">424</a>
             </div>
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="index.php">Home</a></li>
+                    <li class=""><a href="index.php">Home</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="signin.php">Log In</a></li>
+                    <li class="active"><a href="register.php">Register</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="recover_account.php">Recover Account</a></li>
+                    <li class=""><a href="recover_account.php">Recover Account</a></li>
                 </ul>
             </div>
         </div>
