@@ -7,24 +7,24 @@
     <!-- <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'> -->
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
-<?php
+    <?php
+
     $database = 'captain_vahab';
     $user = 'vahab';
     $password = '5bPKpsmPvfEujKVb';
     $host = 'localhost';
 
-    $link = mysqli_connect($host, $user, $password, $database);
-    if ($link) {
-        // echo "Link: " . $link;
-        $db_selected = mysql_select_db(
-            $database,
-            $link
-            );
-    }
-    else {
-        die("Error: " . mysqli_connect_error());
-    }
-?>
+    $connection = mysql_connect($host, $user, $password);
+    $db = mysql_select_db('captain_vahab', $connection);
+
+    if (!$connection)
+        die('Connection Failed'.mysql_error());
+
+    if (!$db)
+        die('Database connection Failed'.mysql_error());
+
+
+    ?>
 </head>
 <body>
 
