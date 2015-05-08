@@ -84,12 +84,12 @@
                     <option value="firstcar">What was the model of your first car?</option>
                 </select>
                 <input type="text" class ="type_register" name="securityanswer" placeholder="Answer for Security Question">
-                <!--
+
                 <div id="honeypot-check" style="display:none">
                     This is to check if you are human.
                     <input type="text" name="honeypot" value=""/>
                 </div>
-                -->
+
 
             </div>
             <input type="submit" value="Register" class="submit" style="margin: 10px;">
