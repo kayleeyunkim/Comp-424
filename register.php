@@ -107,7 +107,7 @@
 
 <form name="registration" id = "registration" method="post" action="register.php">
     <div class=outerbox_register>
-        <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$result_quote</div>"?></span>
+        <span class = "result"> <?php echo "<br/>><div style='font-size: 20px; text-align: center; color: red'>$result_quote</div>"?></span>
 
         <p class="title">Registration Form</p>
         <div class="registerpart">
