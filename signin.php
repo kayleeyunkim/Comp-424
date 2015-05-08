@@ -55,7 +55,7 @@
                     $_SESSION['logged_in'] = true;
                     $_SESSION['email'] = $email;
 
-                    header("Location: signin.php");
+                    header("Location: welcome.php");
                 }
 
                 else
@@ -139,18 +139,32 @@
     </form>
     <?php }
 
-    else
-    { ?>
+    else { ?>
         <h1 style="text-align: center; margin-top: 50px;"> Welcome Back:
-            <?php
-                $user = $_SESSION['email'];
-                echo "$user";
 
-
-            ?>
 
             <br/><a href="logout.php">Log Out</a></h1>
-        <?php }?>
+
+        <?php
+        function curPageURL()
+        {
+            $pageURL = 'http';
+            if ($_SERVER["HTTPS"] == "on") {
+                $pageURL .= "s";
+            }
+            $pageURL .= "://";
+            if ($_SERVER["SERVER_PORT"] != "80") {
+                $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"];
+            } else {
+                $pageURL .= $_SERVER["SERVER_NAME"];
+            }
+            return $pageURL;
+        }
+
+        $baseUrl = curPageURL();
+        header("Location: $baseUrl/welcome.php");
+        die();
+    }?>
 
 
 
