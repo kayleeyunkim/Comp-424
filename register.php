@@ -131,16 +131,16 @@
                 <option value="firstcar">What was the model of your first car?</option>
             </select>
             <input type="text" class ="type_register" name="security_answer" placeholder="Answer for Security Question">
-            <!--
+
             <div id="honeypot-check" style="display:none">
                 This is to check if you are human.
                 <input type="text" name="honeypot" value=""/>
             </div>
-            -->
+
 
         </div>
         <input type="submit" name="submit" value="Register" class="submit" style="margin: 10px;">
-        <span class = "error"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$errorempty</div>"?></span>
+        <span class = "error"> <?php echo "<br /><div style='font-size: 20px; text-align: center; color: red'>$errorempty</div>"?></span>
 
         <div class = "forgot1">
             Have an account? Sign in <a href="signin.php">HERE</a>
