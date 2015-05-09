@@ -183,13 +183,12 @@
 
                 <?php
                     date_default_timezone_set('America/Los_Angeles');
-                echo date("F jS Y\, l h:i:s A") . "<br>";
+                    echo date("F jS Y\, l h:i:s A") . "<br>";
                 ?>
 
                  <?php
                 }
-
-                mysql_free_result($result);
+                mysql_free_result($result1);
             ?>
 
             <br/><a href="logout.php">Log Out</a></h1>

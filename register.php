@@ -139,8 +139,6 @@
                 <input type="text" name="honeypot" value=""/>
             </div>
 
-            <br/><a href="logout.php">Log Out</a></h1>
-
         </div>
         <input type="submit" name="submit" value="Register" class="submit" style="margin: 10px;">
         <span class = "error"> <?php echo "<br /><div style='font-size: 20px; text-align: center; color: red'>$errorempty</div>"?></span>
