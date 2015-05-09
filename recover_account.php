@@ -47,6 +47,10 @@
             </ul>
 
             <ul class="nav navbar-nav">
+                <li class=""><a href="signin.php">Log in</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav">
                 <li class=""><a href="register.php">Register</a></li>
             </ul>
 

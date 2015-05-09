@@ -185,7 +185,7 @@
                     date_default_timezone_set('America/Los_Angeles');
                     echo date("F jS Y\, l h:i:s A") . "<br>";
                 ?>
-
+                <div><a href="confidential/company_confidential_file.txt">Confidential File</a></div>
                  <?php
                 }
                 mysql_free_result($result1);
