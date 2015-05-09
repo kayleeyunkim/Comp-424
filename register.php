@@ -291,13 +291,15 @@
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            // encrypt password
+            $encryptedPassword = crypt($_POST['password'], genKey(60));
+            // $password = $_POST['password'];
             $phone_number = $_POST['phone_number'];
             $birth_date = $_POST['birth_date'];
             $security_question = $_POST['security_question'];
             $security_answer = $_POST['security_answer'];
 
-            $query = "INSERT INTO users (first_name, last_name, email, password, phone_number, birth_date, security_question, security_answer) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$password."', '".$phone_number."', '".$birth_date."', '".$security_question."', '".$security_answer."')";
+            $query = "INSERT INTO users (first_name, last_name, email, password, phone_number, birth_date, security_question, security_answer) VALUES ('".$first_name."', '".$last_name."', '".$email."', '".$encryptedPassword."', '".$phone_number."', '".$birth_date."', '".$security_question."', '".$security_answer."')";
 
             $result = mysql_query($query);
 
