@@ -91,7 +91,7 @@
 
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="index.php">Home</a></li>
+                <li class="active"><a href="signin.php">Home</a></li>
             </ul>
 
             <ul class="nav navbar-nav">
@@ -105,9 +105,11 @@
     </div>
 </nav>
 
+
+
 <form name="registration" id = "registration" method="post" action="register.php">
     <div class=outerbox_register>
-        <span class = "result"> <?php echo "<br/>><div style='font-size: 20px; text-align: center; color: red'>$result_quote</div>"?></span>
+        <span class = "result"> <?php echo "<br/><div style='font-size: 20px; text-align: center; color: red'>$result_quote</div>"?></span>
 
         <p class="title">Registration Form</p>
         <div class="registerpart">
@@ -137,6 +139,7 @@
                 <input type="text" name="honeypot" value=""/>
             </div>
 
+            <br/><a href="logout.php">Log Out</a></h1>
 
         </div>
         <input type="submit" name="submit" value="Register" class="submit" style="margin: 10px;">

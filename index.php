@@ -11,6 +11,9 @@ function curPageURL() {
     return $pageURL;
 }
 $baseUrl = curPageURL();
+
+
 header("Location: $baseUrl/signin.php");
 die();
 ?>
+
