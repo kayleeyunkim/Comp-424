@@ -28,13 +28,21 @@
     if ($_POST) {
         $valid = true;
         $error_quote = "";
+        $return_sign_in = "";
 
         if (!isset($_POST['password']) || (empty($_POST['password']))) {
             $valid = false;
+            $error_quote = "Please fill all the fields.";
         }
 
         if (!isset($_POST['repwd']) || (empty($_POST['repwd']))) {
             $valid = false;
+            $error_quote = "Please fill all the fields.";
+        }
+
+        if (!isset($_POST['email']) || (empty($_POST['email']))) {
+            $valid = false;
+            $error_quote = "Please fill all the fields.";
         }
 
         if ($_POST['password'] != $_POST['repwd'])
@@ -59,8 +67,10 @@
             if (!$db)
                 die('Database connection Failed' . mysql_error());
 
-            $email = $_GET['email'];
             $newpassword = $_POST['password'];
+            $email = $_POST['email'];
+
+
             $query = "UPDATE users SET password = \"$newpassword\" WHERE email = \"$email\"";
 
             $result = mysql_query($query);
@@ -68,7 +78,10 @@
             if ($result)
             {
                 $error_quote = "New Password sets successfully";
+
             }
+
+            $return_sign_in = "<h1 style='text-align: center; margin-top: 70px;'><a href='signin.php'>Sign In Here</a></h1>";
         }
 
         else {
@@ -109,9 +122,10 @@
 
 
 <form name="reset_password" id = "reset_password" method="post" action="setnewpassword.php">
+    <span class="result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$return_sign_in</div>" ?></span>
     <div class="outerbox_forgot_username" id = "outerbox_forgot_username">
-        <span class="result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>" ?></span>
         <p class="title">Set New Password</p>
+        <input class ="type_register" type = "email" name = "email" value ="" placeholder="Enter E-mail address">
         <input id="pwd" class="type_register" type="PASSWORD" name="password" value="" placeholder = "Type New Password">
         <input type="PASSWORD" class="type_register" id="repwd" name="repwd" placeholder="Re-type Password">
         <input type="submit" name ="checkanswer" value="Set Password" class="submit" style="margin: 10px;">

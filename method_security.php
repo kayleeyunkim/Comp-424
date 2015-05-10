@@ -9,9 +9,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript">
 
-    </script>
 
     <?php
 
@@ -132,13 +130,14 @@
                     ?>
 
                     <div class="question_outer_div">
-                        <form name="setnewpassword" class = "setnewpassword" method="post" action="setnewpassword.php?email=<?php echo $email?>">
+                        <form name="setnewpassword" class = "setnewpassword" method="post">
                             <span class="result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>" ?></span>
                             <p style="font-size:20px;text-align: center; margin-top: 10px;"> <?php echo $question_quote ?><br/></p>
                             <input type="text" class="type_forgot_username" name="security_answer" placeholder="Answer here">
-                            <input type="submit" name ="checkanswer" value="Submit Answer" class="submit" style="margin: 10px;">
+                            <input type="button" name ="checkanswer" value="Submit Answer" class="submit" style="margin: 10px;" onclick="location.href='setnewpassword.php?email=<?php echo $email?>'">
                         </form>
                     </div>
+
                 <?php
                 }
                 echo "<form id ='method_security' style='display:none;>";
