@@ -409,7 +409,7 @@
                     exit;
                 }
 
-            while ($row = mysql_fetch_assoc($result1)) {
+            if ($row = mysql_fetch_assoc($result1)) {
             ?>
                 <h1 style="text-align: center; margin-top: 100px;"> Welcome! <?php echo $row["first_name"]?> <?php echo $row["last_name"]?>.<br/>
                     You logged in [login_count] times. <br/>
