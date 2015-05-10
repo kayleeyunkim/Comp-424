@@ -14,12 +14,72 @@
 
     </script>
     <?php
-    /**
-     * Created by PhpStorm.
-     * User: Kaylee's Desktop
-     * Date: 2015-05-05
-     * Time: 오후 8:26
-     */
+        if ($_POST) {
+            $valid = true;
+            $error_quote = "";
+
+
+            if (!isset($_POST['email']) || (empty($_POST['email']))) {
+                $valid = false;
+                $error_quote = "Please fill all the fields.";
+            }
+
+            if ($valid) {
+                $database = 'captain_vahab';
+                $user = 'vahab';
+                $password = '5bPKpsmPvfEujKVb';
+                $host = 'localhost';
+
+                $connection = mysql_connect($host, $user, $password);
+                $db = mysql_select_db('captain_vahab', $connection);
+
+                if (!$connection)
+                    die('Connection Failed' . mysql_error());
+
+                if (!$db)
+                    die('Database connection Failed' . mysql_error());
+
+                $email = $_POST['email'];
+
+                $query = "SELECT * FROM users WHERE email = \"$email\"";
+
+                $result = mysql_query($query);
+
+                if ($result) {
+                    $error_quote = "E-mail successfully sent.";
+
+
+                    while ($row = mysql_fetch_assoc($result1)) {
+                        $from = '<comp424@vahab.com>';
+                        $to = $email;
+                        $subject = 'Hi!';
+                        $body = "Hi,\n\nHow are you?";
+
+                        $headers = array(
+                            'From' => $from,
+                            'To' => $to,
+                            'Subject' => $subject
+                        );
+
+                        $smtp = Mail::factory('smtp', array(
+                            'host' => 'ssl://smtp.gmail.com',
+                            'port' => '465',
+                            'auth' => true,
+                            'username' => 'johndoe@gmail.com',
+                            'password' => 'passwordxxx'
+                        ));
+
+                        $mail = $smtp->send($to, $headers, $body);
+
+                        if (PEAR::isError($mail)) {
+                            echo('<p>' . $mail->getMessage() . '</p>');
+                        } else {
+                            echo('<p>Message successfully sent!</p>');
+                        }
+                    }
+                }
+            }
+        }
     ?>
 
 </head>
@@ -51,23 +111,10 @@
 </nav>
 <form name="method_email" id = "method_email" method="post">
     <div class="outerbox_forgot_username">
-
+        <span class="result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>" ?></span>
         <p class="title">Find Password</p>
-
-
-        <div class="choose_question" id = "choose_question">
-            <input type="email" class="type_register" name="username" placeholder="E-mail address (*Required)">
-
-            <!-- show security question that user choose when register
-            <p id="security_question" style="font-size: 13px;">Security question:</p>
-            <p id="security_question">show security question that user chose when register</p>
-            <input type="text" class ="type_forgot_username2" name="securityanswer" placeholder="Answer for Security Question"> -->
-        </div>
-
-
-
+        <input type="text" value="" class="type_register" name="email" placeholder="Enter your E-mail address">
         <input type="submit" value="Send temporary password" class="submit" style="margin: 10px;">
-
         <div class = "forgot2">
             Find password by Security Question, Click <a href="method_security.php">HERE</a><br/>
             Have an account? Sign in <a href="signin.php">HERE</a><br/>
