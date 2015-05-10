@@ -341,11 +341,12 @@
             </nav>
 
             <form name="signinform" id ="signinform" method="post" action="signin.php" onsubmit="validation()">
+                <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>"?></span>
+
                 <div class="outside" id="outside">
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>"?></span>
                             <p class = "title" id = "title">Sign In</p>
                         </div>
                         <div class="loginpart">

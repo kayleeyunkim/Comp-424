@@ -11,16 +11,159 @@
 
     <script type="text/javascript">
 
-
     </script>
     <?php
-    /**
-     * Created by PhpStorm.
-     * User: Kaylee's Desktop
-     * Date: 2015-05-05
-     * Time: 오후 8:26
-     */
+
+        if ($_POST)
+        {
+            $valid = true;
+
+            if (!isset($_POST['email']) || (empty($_POST['email']))) {
+                $valid = false;
+            }
+
+            if (!isset($_POST['first_name']) || (empty($_POST['first_name']))) {
+                $valid = false;
+            }
+
+            if (!isset($_POST['last_name']) || (empty($_POST['last_name']))) {
+                $valid = false;
+            }
+
+            if ($valid)
+            {
+                $database = 'captain_vahab';
+                $user = 'vahab';
+                $password = '5bPKpsmPvfEujKVb';
+                $host = 'localhost';
+
+                $connection = mysql_connect($host, $user, $password);
+                $db = mysql_select_db('captain_vahab', $connection);
+
+                if (!$connection)
+                    die('Connection Failed' . mysql_error());
+
+                if (!$db)
+                    die('Database connection Failed' . mysql_error());
+
+
+                $email = $_POST['email'];
+                $first_name = $_POST['first_name'];
+                $last_name = $_POST['last_name'];
+
+                $query = "SELECT * FROM users WHERE email = \"$email\" AND first_name = \"$first_name\" AND last_name = \"$last_name\"";
+
+                $result = mysql_query($query);
+
+                $row = mysql_fetch_assoc($result);
+
+                if ($row)
+                {
+                    $query1 = "SELECT security_question FROM users WHERE email = \"$email\" AND first_name = \"$first_name\" AND last_name = \"$last_name\"";
+                    $result1 = mysql_query($query1);?>
+
+                    <nav class="navbar navbar-inverse navbar-fixed-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <a class="navbar-brand" href="#">424</a>
+                            </div>
+
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.php">Home</a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="signin.php">Log In</a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="register.php">Register</a></li>
+                                </ul>
+
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="recover_account.php">Recover Account</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+
+                    <?php
+                    if (!$result1) {
+                        echo "Could not successfully run query ($query1) from DB: " . mysql_error();
+                        exit;
+                    }
+
+                    if (mysql_num_rows($result1) == 0) {
+                        echo "There is no account that you proivded. Please check your input or Register.";
+                        exit;
+                    }
+
+                    while ($row = mysql_fetch_assoc($result1)) {
+                        $question_quote = "";
+                        $question= $row["security_question"];
+                        if ($question == "petname")
+                        {
+                            $question_quote = "What is your pet name?";
+                        }
+
+                        if ($question == "schoolname")
+                        {
+                            $question_quote = "What University did you attend?";
+                        }
+
+                        if ($question == "gradyear")
+                        {
+                            $question_quote = "What year did / will you graduate?";
+                        }
+
+                        if ($question == "maiden")
+                        {
+                            $question_quote = "What is your mother's maiden name?";
+                        }
+
+                        if ($question == "nickname")
+                        {
+                            $question_quote = "What was your childhood nickname?";
+                        }
+
+                        if ($question == "oldmiddle")
+                        {
+                            $question_quote = "What is the middle name of your child?";
+                        }
+
+                        if ($question == "firstcar")
+                        {
+                            $question_quote = "What was the model of your first car?";
+                        }
+
+                        ?>
+                        <div class = "question_outer_div">
+                            <form name="correct_security_answer" id = "correct_security_answer" method="post" action="method_security.php">
+                                <p style="font-size:20px;text-align: center; margin-top: 10px;"> <?php echo $question_quote?><br/></p>
+                                <input type = "text" class = "type_forgot_username" name = "answer" placeholder="Answer here">
+                                <input type="submit" value="Set New Password" class="submit" style="margin: 10px;">
+                            </form>
+                        </div>
+
+                        <?php
+                        echo "<div id='outerbox_forgot_username' style ='display: none;'>";
+
+                    }
+                    mysql_free_result($result1);
+                }
+
+                else {
+                    $error_quote = $query;
+                }
+            }
+
+            else {
+                $error_quote = "Please fill all the fields.";
+            }
+        }
     ?>
+
 
 </head>
 <body>
@@ -49,22 +192,22 @@
         </div>
     </div>
 </nav>
-<form name="method_security" id = "method_security" method="post">
-    <div class="outerbox_forgot_username">
+
+<form name="method_security" id = "method_security" method="post" action="method_security.php">
+    <div class="outerbox_forgot_username" id = "outerbox_forgot_username">
+
+        <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>"?></span>
 
         <p class="title">Find Password</p>
 
 
         <div class="choose_question" id = "choose_question">
-        <input type="text" class="type_forgot_username" id ="name" name="firstname" placeholder="First name">
-        <input type="text" class="type_forgot_username" id ="name" name="lastname" placeholder="Last name">
-        <input type="email" class="type_register" name="username" placeholder="E-mail address (*Required)">
+            <input type="text" class="type_forgot_username" id ="name" name="first_name" placeholder="First name">
+            <input type="text" class="type_forgot_username" id ="name" name="last_name" placeholder="Last name">
+            <input type="email" class="type_register" name="email" placeholder="E-mail address (*Required)">
 
-            <!-- show security question that user choose when register
-            <p id="security_question" style="font-size: 13px;">Security question:</p>
-            <p id="security_question">show security question that user chose when register</p>
-            <input type="text" class ="type_forgot_username2" name="securityanswer" placeholder="Answer for Security Question"> -->
-    </div>
+
+        </div>
 
 
         <input type="submit" value="Temporary Question" class="submit" style="margin: 10px;">
@@ -75,10 +218,7 @@
             Have an account? Sign in <a href="signin.php">HERE</a><br/>
             New user? Register <a href="register.php">HERE</a>
         </div>
-</div>
-
-
+    </div>
 </form>
 </body>
 </html>
-

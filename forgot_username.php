@@ -64,16 +64,16 @@
 
                 if($row)
                 {
-                    ?><p style = "font-size: 30px; margin-top: 50px;"> <?php echo "Your User E-mail is: ", $row["email"]?></p><?php
+                    ?><p style = "font-size: 30px; margin-top: 50px; text-align: center; font-weight: bold;"> <?php echo "Your User E-mail is: ", $row["email"]?> <a href="signin.php">Sign In HERE</a></p><?php
 
                     header("Location: signin.php");
+                    ?>
+                <?php
                 }
 
                 else
                 {
                     $error_quote = "Please check information that you provided.";
-                    //echo "<div style='color:red; text-align:center; font-weight: bold; font-size: 30px; margin-top: 25px;'>
-                    //   Wrong Credentials. Please try again or register! </div>";
                 }
             }
 
@@ -113,9 +113,10 @@
     </div>
 </nav>
 
+
     <form name="forgot_username" id = "forgot_username" method="post" action="forgot_username.php">
         <div class="outerbox_forgot_username">
-            <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>"?></span>
+            <span class = "result"> <?php echo "</br><div style='font-size: 30px; text-align: center; color: red'>$error_quote</div>"?></span>
 
             <p class="title">Find Username</p>
 
