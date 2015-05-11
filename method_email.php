@@ -8,12 +8,15 @@
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./assets/bootstrap/css/bootstrap-theme.min.css">
     <script type="text/javascript" src="./assets/bootstrap/js/bootstrap.min.js"></script>
+    <link href="./assets/PHPMailer/class.phpmailer.php">;
 
     <script type="text/javascript">
 
 
     </script>
     <?php
+
+
         if ($_POST) {
             $valid = true;
             $error_quote = "";
@@ -44,39 +47,42 @@
                 $query = "SELECT * FROM users WHERE email = \"$email\"";
 
                 $result = mysql_query($query);
+                $row = mysql_fetch_assoc($result);
 
-                if ($result) {
-                    $error_quote = "E-mail successfully sent.";
+                if ($row) {
+                    echo "hello";
+                    $first_name = $row['first_name'];
+                    $last_name = $row['last_name'];
+                    $email_message = "Hello, $first_name $last_name. Here is the <a href='setnewpassword.php'>LINK</a> to set new password.";
 
+                    require './assets/PHPMailer/PHPMailerAutoload.php';
 
-                    while ($row = mysql_fetch_assoc($result1)) {
-                        $from = '<comp424@vahab.com>';
-                        $to = $email;
-                        $subject = 'Hi!';
-                        $body = "Hi,\n\nHow are you?";
+                    $mail = new PHPMailer;
 
-                        $headers = array(
-                            'From' => $from,
-                            'To' => $to,
-                            'Subject' => $subject
-                        );
+                    $mail->isSMTP();                                      // Set mailer to use SMTP
+                    $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+                    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                    $mail->Username = 'dummycomp424@gmail.com';                   // SMTP username
+                    $mail->Password = '5bPKpsmPvfEujKVb1';               // SMTP password
+                    $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+                    $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+                    $mail->setFrom('dummycomp424@gmail.com', 'Captain Vahab');     //Set who the message is to be sent from
+                    $mail->addReplyTo('bbobbo0918@gmail.com', 'Another Captain');  //Set an alternative reply-to address
+                    $mail->addAddress($email, $first_name + $last_name);  // Add a recipient
+                    $mail->WordWrap = 50;
+                    $mail->isHTML(true);                                  // Set email format to HTML
 
-                        $smtp = Mail::factory('smtp', array(
-                            'host' => 'ssl://smtp.gmail.com',
-                            'port' => '465',
-                            'auth' => true,
-                            'username' => 'johndoe@gmail.com',
-                            'password' => 'passwordxxx'
-                        ));
+                    $mail->Subject = 'Set New Password';
+                    $mail->Body    = $email_message;
+                    $mail->AltBody = 'Set New Password';
 
-                        $mail = $smtp->send($to, $headers, $body);
-
-                        if (PEAR::isError($mail)) {
-                            echo('<p>' . $mail->getMessage() . '</p>');
-                        } else {
-                            echo('<p>Message successfully sent!</p>');
-                        }
+                    if(!$mail->send()) {
+                        echo 'Message could not be sent.';
+                        echo 'Mailer Error: ' . $mail->ErrorInfo;
+                        exit;
                     }
+
+                    $error_quote = 'Message has been sent';
                 }
             }
         }
