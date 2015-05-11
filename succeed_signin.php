@@ -66,7 +66,7 @@
                 <nav class="navbar navbar-inverse navbar-fixed-top">
                     <div class="container">
                         <div class="navbar-header">
-                            <a class="navbar-brand" href="index.php">424</a>
+                            <a class="navbar-brand" href="succeed_signin.php">424</a>
                         </div>
 
                         <div class="collapse navbar-collapse">
@@ -130,12 +130,12 @@ if ($_SESSION['logged_in'] == false)
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">424</a>
+                <a class="navbar-brand">424</a>
             </div>
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="signin.php">Home</a></li>
+                    <li class="active"><a href="logout.php">Log Out</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav">

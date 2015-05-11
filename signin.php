@@ -473,7 +473,9 @@
             $_SESSION['logged_in'] = false;
 
         }
-    }?>
+    }
+
+    ?>
 
 <script type="text/javascript">
     function validation() {
