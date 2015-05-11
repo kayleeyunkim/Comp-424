@@ -77,11 +77,9 @@
 
             if ($result)
             {
-                $error_quote = "New Password sets successfully";
-
+                $return_sign_in = "New Password sets successfully. <a href='signin.php'>Sign In Here</a></h1>";
             }
 
-            $return_sign_in = "<h1 style='text-align: center; margin-top: 70px;'><a href='signin.php'>Sign In Here</a></h1>";
         }
 
         else {
@@ -122,7 +120,7 @@
 
 
 <form name="reset_password" id = "reset_password" method="post" action="setnewpassword.php">
-    <span class="result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$return_sign_in</div>" ?></span>
+    <span class="result"> <?php echo "</br><div style='margin-top: 100px;font-size: 20px; text-align: center; color: red'>$return_sign_in</div>" ?></span>
     <div class="outerbox_forgot_username" id = "outerbox_forgot_username">
         <p class="title">Set New Password</p>
         <input class ="type_register" type = "email" name = "email" value ="" placeholder="Enter E-mail address">
