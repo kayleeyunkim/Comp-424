@@ -355,11 +355,12 @@
             </nav>
 
             <form name="signinform" id ="signinform" method="post" action="signin.php" onsubmit="validation()">
-                <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>"?></span>
 
                 <div class="outside" id="outside">
 
                     <div class="row">
+                        <span class = "result"> <?php echo "</br><div style='font-size: 20px; text-align: center; color: red'>$error_quote</div>"?></span>
+
                         <div class="col-lg-12">
                             <p class = "title" id = "title">Sign In</p>
                         </div>
@@ -392,7 +393,7 @@
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.php">424</a>
+                    <a class="navbar-brand">424</a>
                 </div>
 
                 <div class="collapse navbar-collapse">
@@ -431,7 +432,7 @@
 
             $first_name = $row1["first_name"];
             $last_name = $row1["last_name"];
-            $email = $row1["email"];
+            $email = $_SESSION["email"];
 
             $query3 = "UPDATE users SET random_code = \"$random_code\" WHERE email = \"$email\" AND first_name = \"$first_name\" AND last_name =\"$last_name\"";
 
@@ -439,7 +440,7 @@
 
             $baseUrl = curPageURL();
 
-            $email_message = "Hello, $first_name $last_name. Here is the access code <b>$random_code</b>. Use this <a href='$baseUrl/succeed_signin.php'>LINK</a> to log in.";
+            $email_message = "Hello, $first_name $last_name. Here is the access code <b>$random_code</b>. Use this <a href='$baseUrl/succeed_signin.php?email=$email'>LINK</a> to log in.";
 
             require './assets/PHPMailer/PHPMailerAutoload.php';
 
@@ -469,6 +470,8 @@
             }
 
             echo '<p style = "margin-top: 100px; text-align: center; font-size: 30px;"> Message has been sent with access code.<br/>Please check your e-mail and use the link to log in.</p> ';
+            $_SESSION['logged_in'] = false;
+
         }
     }?>
 
