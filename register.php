@@ -280,14 +280,19 @@
 
     if ($_POST)
     {
+        if (!empty($_POST['honeypot']))
+        {
+            $errorempty = "You are a robot! Go away!";
+        }
+
         if (empty($_POST['first_name']) || empty($_POST['last_name']) || empty($_POST['email']) || empty($_POST['password'])
             || empty($_POST['phone_number']) || empty($_POST['birth_date']) || empty($_POST['security_question']) || empty($_POST['security_answer']))
         {
             $errorempty = "Please fill all the fields";
         }
 
-        else if (isset($_POST['first_name']) || isset($_POST['last_name']) || isset($_POST['email']) || isset($_POST['password'])
-            || isset($_POST['phone_number']) || isset($_POST['birth_date']) || isset($_POST['security_question']) || isset($_POST['security_answer']))
+        else if (isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email']) && isset($_POST['password'])
+            || isset($_POST['phone_number']) && isset($_POST['birth_date']) && isset($_POST['security_question']) && isset($_POST['security_answer']) && empty($_POST['honeypot']))
         {
             $first_name = $_POST['first_name'];
             $last_name = $_POST['last_name'];
@@ -371,13 +376,9 @@
                 <option value="firstcar">What was the model of your first car?</option>
             </select>
             <input type="text" class ="type_register" name="security_answer" placeholder="Answer for Security Question">
-
-            <div id="honeypot-check" style="display:none">
-                This is to check if you are human.
-                <input type="text" name="honeypot" value=""/>
+            <input type="text" class="type_register" name="honeypot" placeholder="Leave this blank if you are human">
             </div>
 
-        </div>
         <input type="submit" name="submit" value="Register" class="submit" style="margin: 10px;">
         <span class = "error"> <?php echo "<br /><div style='font-size: 20px; text-align: center; color: red'>$errorempty</div>"?></span>
 

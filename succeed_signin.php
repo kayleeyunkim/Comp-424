@@ -61,10 +61,6 @@
                 mysql_query($sql);
 
                 $login_count = $row["login_count"];
-
-
-
-
                 ?>
 
                 <nav class="navbar navbar-inverse navbar-fixed-top">
