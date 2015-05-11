@@ -28,17 +28,18 @@
 
     // Salt generator
     function genKey($length) {
-      if($length > 0) {
-          $rand_id="";
+        $rand_id="";
+        if($length > 0) {
             for($i=1; $i <= $length; $i++) {
              mt_srand((double)microtime() * 1000000);
              $num = mt_rand(1,72);
-             $rand_id .= assign_rand_value($num);
+             $rand_id = assign_rand_value($num);
             }
       }
         return $rand_id;
     }
     function assign_rand_value($num) {
+        $rand_value="";
       switch($num) {
         case "1":
          $rand_value = "a";
