@@ -57,6 +57,14 @@
                 $last_name = $row["last_name"];
                 $email = $row["email"];
 
+                $sql = "UPDATE users SET login_count = login_count + 1 WHERE email = \"$email\"";
+                mysql_query($sql);
+
+                $login_count = $row["login_count"];
+
+
+
+
                 ?>
 
                 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -77,8 +85,8 @@
                     </div>
                 </nav>
                 <h1 style="text-align: center; margin-top: 100px;">
-                    Welcome! <?php echo $row["first_name"] ?> <?php echo $row["last_name"] ?>.<br/>
-                    You logged in [login_count] times. <br/>
+                    Welcome! <?php echo $first_name ?> <?php echo $last_name ?>.<br/>
+                    You logged in <?php echo $login_count?> times. <br/>
                     Log in time is
 
                     <?php
