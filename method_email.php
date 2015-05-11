@@ -63,7 +63,6 @@
                 $row = mysql_fetch_assoc($result);
 
                 if ($row) {
-                    echo "hello";
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
 

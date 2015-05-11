@@ -312,9 +312,22 @@
 <body>
 
 </body>
-
-
     <?php
+        function curPageURL()
+        {
+            $pageURL = 'http';
+            if ($_SERVER["HTTPS"] == "on") {
+                $pageURL .= "s";
+            }
+            $pageURL .= "://";
+            if ($_SERVER["SERVER_PORT"] != "80") {
+                $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"];
+            } else {
+                $pageURL .= $_SERVER["SERVER_NAME"];
+            }
+            return $pageURL;
+        }
+
         if (!isset($_SESSION['logged_in']))
         { ?>
 
@@ -394,81 +407,70 @@
             </div>
         </nav>
 
-            <?php
-                $user = $_SESSION['email'];
+        <?php
+        $random_code = mt_rand();
 
-                $query1 = "SELECT first_name, last_name, email, birth_date FROM users WHERE email = \"$user\"";
-                $result1 = mysql_query($query1);
+        $user = $_SESSION['email'];
 
-
-
-                if (!$result1) {
-                    echo "Could not successfully run query ($query1) from DB: " . mysql_error();
-                    exit;
-                }
-
-                if (mysql_num_rows($result1) == 0) {
-                    echo "No rows found, nothing to print so am exiting";
-                    exit;
-                }
-
-            if ($row = mysql_fetch_assoc($result1)) {
-
-                $random_code = mt_rand();
-
-                require './assets/PHPMailer/PHPMailerAutoload.php';
-
-                $mail = new PHPMailer;
-
-                $mail->isSMTP();                                      // Set mailer to use SMTP
-                $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
-                $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                $mail->Username = 'dummycomp424@gmail.com';                   // SMTP username
-                $mail->Password = '5bPKpsmPvfEujKVb1';               // SMTP password
-                $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-                $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
-                $mail->setFrom('dummycomp424@gmail.com', 'Captain Vahab');     //Set who the message is to be sent from
-                $mail->addReplyTo('bbobbo0918@gmail.com', 'Another Captain');  //Set an alternative reply-to address
-                $mail->addAddress($user, $row["first_name"] + $row["last_name"]);  // Add a recipient
-                $mail->WordWrap = 50;
-                $mail->isHTML(true);                                  // Set email format to HTML
-
-                $mail->Subject = 'Here is the access code';
-                $mail->Body    = 'Here is the access code: ' + $random_code;
-                $mail->AltBody = 'Access Code';
-
-                if(!$mail->send()) {
-                    echo 'Message could not be sent.';
-                    echo 'Mailer Error: ' . $mail->ErrorInfo;
-                    exit;
-                }
-
-                $error_quote = 'Message has been sent';
-
-                ?>
-                <h1 style="text-align: center; margin-top: 100px;"> Welcome! <?php echo $row["first_name"]?> <?php echo $row["last_name"]?>.<br/>
-                    You logged in [login_count] times. <br/>
-                    Log in time is
-
-                <?php
-
-                    date_default_timezone_set('America/Los_Angeles');
-                    echo date("F jS Y\, l h:i:s A") . "<br>";
-                    $random_code = mt_rand();
-                    echo $random_code;
-
-                ?>
-                <div><a href="confidential/company_confidential_file.txt">Confidential File</a></div>
-                 <?php
-                }
-                mysql_free_result($result1);
-            ?>
-
-            <br/><a href="logout.php">Log Out</a></h1>
-            <?php }?>
+        $query1 = "SELECT first_name, last_name, email, birth_date FROM users WHERE email = \"$user\"";
+        $result1 = mysql_query($query1);
+        $row1 = mysql_fetch_assoc($result1);
 
 
+        if (!$result1) {
+            echo "Could not successfully run query ($query1) from DB: " . mysql_error();
+            exit;
+        }
 
+        if (mysql_num_rows($result1) == 0) {
+            echo "No rows found, nothing to print so am exiting";
+            exit;
+        }
+
+        if ($row1) {
+
+            $first_name = $row1["first_name"];
+            $last_name = $row1["last_name"];
+            $email = $row1["email"];
+
+            $query3 = "UPDATE users SET random_code = \"$random_code\" WHERE email = \"$email\" AND first_name = \"$first_name\" AND last_name =\"$last_name\"";
+
+            $result3 = mysql_query($query3);
+
+            $baseUrl = curPageURL();
+
+            $email_message = "Hello, $first_name $last_name. Here is the access code <b>$random_code</b>. Use this <a href='$baseUrl/succeed_signin.php'>LINK</a> to log in.";
+
+            require './assets/PHPMailer/PHPMailerAutoload.php';
+
+            $mail = new PHPMailer;
+
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'comp424vahab@gmail.com';                   // SMTP username
+            $mail->Password = 'comp4241234';               // SMTP password
+            $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+            $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+            $mail->setFrom('comp424vahab@gmail.com', 'Captain Vahab');     //Set who the message is to be sent from
+            $mail->addReplyTo('dummycomp424@gmail.com', 'Another Captain');  //Set an alternative reply-to address
+            $mail->addAddress($email, $first_name + $last_name);  // Add a recipient
+            $mail->WordWrap = 50;
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->Subject = 'Access Code';
+            $mail->Body = $email_message;
+            $mail->AltBody = 'Set New Password';
+
+            if (!$mail->send()) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+                exit;
+            }
+
+            echo '<p style = "margin-top: 100px; text-align: center; font-size: 30px;"> Message has been sent with access code.<br/>Please check your e-mail and use the link to log in.</p> ';
+        }
+    }?>
 
 <script type="text/javascript">
     function validation() {
