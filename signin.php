@@ -400,6 +400,8 @@
                 $query1 = "SELECT first_name, last_name, email, birth_date FROM users WHERE email = \"$user\"";
                 $result1 = mysql_query($query1);
 
+
+
                 if (!$result1) {
                     echo "Could not successfully run query ($query1) from DB: " . mysql_error();
                     exit;
@@ -411,14 +413,50 @@
                 }
 
             if ($row = mysql_fetch_assoc($result1)) {
-            ?>
+
+                $random_code = mt_rand();
+
+                require './assets/PHPMailer/PHPMailerAutoload.php';
+
+                $mail = new PHPMailer;
+
+                $mail->isSMTP();                                      // Set mailer to use SMTP
+                $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
+                $mail->SMTPAuth = true;                               // Enable SMTP authentication
+                $mail->Username = 'dummycomp424@gmail.com';                   // SMTP username
+                $mail->Password = '5bPKpsmPvfEujKVb1';               // SMTP password
+                $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
+                $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
+                $mail->setFrom('dummycomp424@gmail.com', 'Captain Vahab');     //Set who the message is to be sent from
+                $mail->addReplyTo('bbobbo0918@gmail.com', 'Another Captain');  //Set an alternative reply-to address
+                $mail->addAddress($user, $row["first_name"] + $row["last_name"]);  // Add a recipient
+                $mail->WordWrap = 50;
+                $mail->isHTML(true);                                  // Set email format to HTML
+
+                $mail->Subject = 'Here is the access code';
+                $mail->Body    = 'Here is the access code: ' + $random_code;
+                $mail->AltBody = 'Access Code';
+
+                if(!$mail->send()) {
+                    echo 'Message could not be sent.';
+                    echo 'Mailer Error: ' . $mail->ErrorInfo;
+                    exit;
+                }
+
+                $error_quote = 'Message has been sent';
+
+                ?>
                 <h1 style="text-align: center; margin-top: 100px;"> Welcome! <?php echo $row["first_name"]?> <?php echo $row["last_name"]?>.<br/>
                     You logged in [login_count] times. <br/>
                     Log in time is
 
                 <?php
+
                     date_default_timezone_set('America/Los_Angeles');
                     echo date("F jS Y\, l h:i:s A") . "<br>";
+                    $random_code = mt_rand();
+                    echo $random_code;
+
                 ?>
                 <div><a href="confidential/company_confidential_file.txt">Confidential File</a></div>
                  <?php

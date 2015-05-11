@@ -14,8 +14,21 @@
 
 
     </script>
+
+
     <?php
 
+        function curPageURL() {
+            $pageURL = 'http';
+            if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+            $pageURL .= "://";
+            if ($_SERVER["SERVER_PORT"] != "80") {
+                $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"];
+            } else {
+                $pageURL .= $_SERVER["SERVER_NAME"];
+            }
+            return $pageURL;
+        }
 
         if ($_POST) {
             $valid = true;
@@ -53,7 +66,10 @@
                     echo "hello";
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
-                    $email_message = "Hello, $first_name $last_name. Here is the <a href='setnewpassword.php'>LINK</a> to set new password.";
+
+                    $baseUrl = curPageURL();
+
+                    $email_message = "Hello, $first_name $last_name. Here is the <a href='$baseUrl/setnewpassword.php'>LINK</a> to set new password.";
 
                     require './assets/PHPMailer/PHPMailerAutoload.php';
 
@@ -62,12 +78,12 @@
                     $mail->isSMTP();                                      // Set mailer to use SMTP
                     $mail->Host = 'smtp.gmail.com';                       // Specify main and backup server
                     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-                    $mail->Username = 'dummycomp424@gmail.com';                   // SMTP username
-                    $mail->Password = '5bPKpsmPvfEujKVb1';               // SMTP password
+                    $mail->Username = 'comp424vahab@gmail.com';                   // SMTP username
+                    $mail->Password = 'comp4241234';               // SMTP password
                     $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
                     $mail->Port = 587;                                    //Set the SMTP port number - 587 for authenticated TLS
-                    $mail->setFrom('dummycomp424@gmail.com', 'Captain Vahab');     //Set who the message is to be sent from
-                    $mail->addReplyTo('bbobbo0918@gmail.com', 'Another Captain');  //Set an alternative reply-to address
+                    $mail->setFrom('comp424vahab@gmail.com', 'Captain Vahab');     //Set who the message is to be sent from
+                    $mail->addReplyTo('dummycomp424@gmail.com', 'Another Captain');  //Set an alternative reply-to address
                     $mail->addAddress($email, $first_name + $last_name);  // Add a recipient
                     $mail->WordWrap = 50;
                     $mail->isHTML(true);                                  // Set email format to HTML
