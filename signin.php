@@ -277,7 +277,7 @@
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
-                $query = "SELECT * FROM users WHERE email = \"$email\"";
+                $query = "SELECT * FROM users WHERE email = \"$email\" AND password = \"$password\"";
 
                 $result = mysql_query($query) or die(mysql_error());
 
