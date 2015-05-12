@@ -140,7 +140,7 @@
 
                 <?php
                 }
-                echo "<form id ='method_security' style='display:none;>";
+                echo "<form id ='method_security' style='display:none;'></form>";
                 mysql_free_result($result1);
 
 

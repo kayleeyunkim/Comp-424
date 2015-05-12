@@ -376,7 +376,7 @@
                 <option value="firstcar">What was the model of your first car?</option>
             </select>
             <input type="text" class ="type_register" name="security_answer" placeholder="Answer for Security Question">
-            <input type="text" class="type_register" name="honeypot" placeholder="Leave this blank if you are human">
+            <input type="text" style="display:none;" class="type_register" name="honeypot" placeholder="Leave this blank if you are human">
             </div>
 
         <input type="submit" name="submit" value="Register" class="submit" style="margin: 10px;">
