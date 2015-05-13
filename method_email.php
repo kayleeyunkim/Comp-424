@@ -68,7 +68,7 @@
 
                     $baseUrl = curPageURL();
 
-                    $email_message = "Hello, $first_name $last_name. Here is the <a href='$baseUrl/setnewpassword.php'>LINK</a> to set new password.";
+                    $email_message = "Hello, $first_name $last_name. Here is the <a href='$baseUrl/setnewpassword.php?email=$email'>LINK</a> to set new password.";
 
                     require './assets/PHPMailer/PHPMailerAutoload.php';
 
