@@ -388,6 +388,7 @@
                 </div>
             </form>
     <?php }
+        
     else {
         ?>
 
@@ -462,7 +463,7 @@
 
             $mail->Subject = 'Access Code';
             $mail->Body = $email_message;
-            $mail->AltBody = 'Set New Password';
+            $mail->AltBody = 'Access Code';
 
             if (!$mail->send()) {
                 echo 'Message could not be sent.';
