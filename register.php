@@ -11,7 +11,7 @@
     <script type="text/javascript" src="./assets/jquery.min.js"></script>
     <script type="text/javascript" src="assets/password_strength/strength.js"></script>
     <script type="text/javascript" src="assets/password_strength/strength.min.js"></script>
-
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script type="text/javascript">
         $(document).ready(function ($) {
             $('#pwd').strength();
@@ -381,6 +381,7 @@
             </select>
             <input type="text" class ="type_register" name="security_answer" placeholder="Answer for Security Question">
             <input type="text" style="display:none;" class="type_register" name="honeypot" placeholder="Leave this blank if you are human">
+            <div class="g-recaptcha" data-sitekey="6LfSxQYTAAAAACL1d46-6UYrug4kL6FCkJOznYjc"></div>
             </div>
 
         <input type="submit" name="submit" value="Register" class="submit" style="margin: 10px;">
